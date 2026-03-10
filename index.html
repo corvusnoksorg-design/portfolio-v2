@@ -9,6 +9,107 @@
       content="Noks is an AI automation freelancer building n8n workflows, VAPI voice AI receptionists, and full-stack apps for Upwork clients."
     >
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      #banner {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(-45deg, #0a0a1a, #0d1f3c, #1a0a2e, #0a1a2e);
+        background-size: 400% 400%;
+        animation: gradientShift 12s ease infinite;
+      }
+
+      #banner .inner {
+        position: relative;
+        z-index: 2;
+      }
+
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      .hero-particles {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .hero-particles .particle {
+        position: absolute;
+        bottom: -24px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.28);
+        animation: floatUp linear infinite;
+      }
+
+      @keyframes floatUp {
+        0% {
+          opacity: 0;
+          transform: translateY(0) scale(1);
+        }
+        15% {
+          opacity: 0.7;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-105vh) scale(1.5);
+        }
+      }
+
+      .hero-subtitle {
+        min-height: 1.8rem;
+      }
+
+      .type-cursor {
+        display: inline-block;
+        margin-left: 0.2rem;
+        opacity: 1;
+        animation: blink 0.8s steps(1, end) infinite;
+      }
+
+      @keyframes blink {
+        50% { opacity: 0; }
+      }
+
+      #menu .links a.active {
+        color: #ffffff;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.85);
+      }
+
+      .project-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .skill-pill {
+        padding: 0.45rem 0.95rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: #fff;
+        font-size: 0.9rem;
+        letter-spacing: 0.01em;
+      }
+    </style>
   </head>
   <body class="is-preload">
     <div id="wrapper">
@@ -35,6 +136,7 @@
             <li><a href="#services">Services</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -42,14 +144,14 @@
       </nav>
 
       <section id="banner" class="major">
+        <div class="hero-particles" aria-hidden="true"></div>
         <div class="inner">
-          <header class="major">
+          <header class="major" data-aos="fade-up">
             <h1>Hi, I&apos;m Noks.</h1>
           </header>
           <div class="content">
-            <p>
-              <span>AI Automation Engineer</span>
-              <span>n8n · Claude Code · VAPI Voice AI · Full-Stack Apps</span>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">
+              <span id="typewriterText"></span><span class="type-cursor">|</span>
             </p>
             <ul class="actions">
               <li><a href="#projects" class="button next scrolly">View My Work</a></li>
@@ -60,28 +162,28 @@
 
       <div id="main">
         <section id="services" class="tiles">
-          <article class="style1">
+          <article class="style1" data-aos="fade-up" data-aos-delay="100">
             <span class="image"></span>
             <header class="major">
               <h3>🤖 AI Workflow Automation</h3>
               <p>n8n &amp; Make.com flows that eliminate manual work and run 24/7</p>
             </header>
           </article>
-          <article class="style2">
+          <article class="style2" data-aos="fade-up" data-aos-delay="200">
             <span class="image"></span>
             <header class="major">
               <h3>🎙️ Voice AI Receptionists</h3>
               <p>AI phone agents that book appointments and handle calls — powered by VAPI</p>
             </header>
           </article>
-          <article class="style3">
+          <article class="style3" data-aos="fade-up" data-aos-delay="300">
             <span class="image"></span>
             <header class="major">
               <h3>💻 Vibe Coding &amp; Web Apps</h3>
               <p>Full-stack apps built fast with Claude Code, Lovable &amp; Supabase</p>
             </header>
           </article>
-          <article class="style4">
+          <article class="style4" data-aos="fade-up" data-aos-delay="400">
             <span class="image"></span>
             <header class="major">
               <h3>🔗 CRM &amp; Business Automation</h3>
@@ -93,41 +195,31 @@
         <section id="about" class="spotlight">
           <div class="inner split">
             <div class="content">
-              <header class="major">
+              <header class="major" data-aos="fade-up">
                 <h2>About Me</h2>
               </header>
-              <p>
+              <p data-aos="fade-up" data-aos-delay="100">
                 I&apos;m Noks, an AI automation engineer based in Bosnia and Herzegovina. I help
                 businesses stop doing repetitive work by building smart automations, AI voice
                 receptionists, and full-stack apps powered by the latest AI tools. Fast delivery.
                 Clean code. Real results.
               </p>
-              <div class="skill-pills" aria-label="Skills">
-                <span>n8n</span>
-                <span>Claude Code</span>
-                <span>VAPI</span>
-                <span>Supabase</span>
-                <span>GoHighLevel</span>
-                <span>Lovable</span>
-                <span>RAG Agents</span>
-                <span>Voice AI</span>
-              </div>
-              <ul class="stats">
-                <li>
-                  <strong>50+</strong>
-                  <span>Automations Built</span>
+              <ul class="stats" data-aos="fade-up" data-aos-delay="200">
+                <li class="stat-item">
+                  <strong data-target="3" data-suffix="">0</strong>
+                  <span>Projects Built</span>
                 </li>
-                <li>
-                  <strong>3+</strong>
-                  <span>Years Experience</span>
+                <li class="stat-item">
+                  <strong data-target="6" data-suffix="+">0</strong>
+                  <span>AI Tools</span>
                 </li>
-                <li>
-                  <strong>10k+</strong>
-                  <span>Hours Saved</span>
+                <li class="stat-item">
+                  <strong data-target="inf">∞</strong>
+                  <span>Coffee</span>
                 </li>
               </ul>
               <ul class="actions">
-                <li><a href="https://www.upwork.com" class="button primary">Hire Me on Upwork →</a></li>
+                <li><a href="mailto:noks@aiautomation.dev" class="button primary">Let&apos;s Build Something →</a></li>
               </ul>
             </div>
           </div>
@@ -135,77 +227,79 @@
 
         <section id="projects" class="section">
           <div class="inner">
-            <header class="major">
+            <header class="major" data-aos="fade-up">
               <h2>Projects</h2>
             </header>
             <div class="project-grid">
-              <article class="project-card">
-                <h3>🦷 Dental Clinic Management App</h3>
+              <article class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Dental Practice Dashboard</h3>
                 <p>
-                  Full-stack web app for dental clinics — patient management, appointment
-                  booking, doctor scheduling. Powered by Supabase + n8n + VAPI voice receptionist.
+                  Full-stack operations platform for a dental team with AI-assisted scheduling,
+                  patient workflows, and automated reminders.
                 </p>
                 <ul class="tags">
                   <li>Next.js</li>
                   <li>Supabase</li>
-                  <li>VAPI</li>
-                  <li>n8n</li>
-                </ul>
-              </article>
-              <article class="project-card">
-                <h3>🎙️ AI Voice Receptionist</h3>
-                <p>
-                  24/7 AI phone agent for a local business. Handles inbound calls, books
-                  appointments, qualifies leads automatically.
-                </p>
-                <ul class="tags">
-                  <li>VAPI</li>
-                  <li>n8n</li>
-                  <li>GoHighLevel</li>
-                </ul>
-              </article>
-              <article class="project-card">
-                <h3>⚡ Business Automation Suite</h3>
-                <p>
-                  End-to-end automation: lead capture → CRM → follow-up emails → reporting.
-                  Zero manual work.
-                </p>
-                <ul class="tags">
-                  <li>n8n</li>
-                  <li>Make.com</li>
-                  <li>Airtable</li>
                   <li>AI</li>
                 </ul>
               </article>
-              <article class="project-card">
-                <h3>🤖 RAG Knowledge Agent</h3>
+              <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+                <h3>Google Maps Lead Scraper</h3>
                 <p>
-                  Custom AI chatbot trained on business documents. Answers customer questions
-                  24/7 without human support.
+                  Automated local business prospecting engine that collects targeted leads and
+                  exports qualified contacts into sales workflows.
                 </p>
                 <ul class="tags">
-                  <li>RAG</li>
-                  <li>Claude</li>
-                  <li>Supabase</li>
-                  <li>Vector DB</li>
+                  <li>Next.js</li>
+                  <li>SerpAPI</li>
+                </ul>
+              </article>
+              <article class="project-card" data-aos="fade-up" data-aos-delay="300">
+                <h3>LexAI &mdash; Lawyer RAG Agent</h3>
+                <p>
+                  Retrieval-augmented legal assistant for case research, policy lookup, and quick
+                  drafting support backed by structured legal knowledge.
+                </p>
+                <ul class="tags">
+                  <li>Next.js</li>
+                  <li>n8n</li>
+                  <li>AI</li>
                 </ul>
               </article>
             </div>
           </div>
         </section>
 
+        <section id="skills" class="section alt">
+          <div class="inner">
+            <header class="major" data-aos="fade-up">
+              <h2>Skills &amp; Tools</h2>
+            </header>
+            <div class="skills-grid" aria-label="Skills and tools">
+              <span class="skill-pill" data-aos="fade-up" data-aos-delay="100">n8n</span>
+              <span class="skill-pill" data-aos="fade-up" data-aos-delay="150">Supabase</span>
+              <span class="skill-pill" data-aos="fade-up" data-aos-delay="200">VAPI</span>
+              <span class="skill-pill" data-aos="fade-up" data-aos-delay="250">GoHighLevel</span>
+              <span class="skill-pill" data-aos="fade-up" data-aos-delay="300">Claude API</span>
+              <span class="skill-pill" data-aos="fade-up" data-aos-delay="350">Next.js</span>
+              <span class="skill-pill" data-aos="fade-up" data-aos-delay="400">Lovable</span>
+              <span class="skill-pill" data-aos="fade-up" data-aos-delay="450">Cursor</span>
+            </div>
+          </div>
+        </section>
+
         <section id="testimonials" class="section alt">
           <div class="inner">
-            <header class="major">
+            <header class="major" data-aos="fade-up">
               <h2>Testimonials</h2>
             </header>
             <!-- Placeholder testimonials until client quotes are available. -->
             <div class="testimonial-grid">
-              <blockquote>
+              <blockquote data-aos="fade-up" data-aos-delay="100">
                 <p>&ldquo;Noks built our automation in 2 days. We saved 15 hours a week immediately.&rdquo;</p>
                 <cite>Sarah M., Clinic Owner</cite>
               </blockquote>
-              <blockquote>
+              <blockquote data-aos="fade-up" data-aos-delay="200">
                 <p>&ldquo;The voice AI receptionist paid for itself in the first week.&rdquo;</p>
                 <cite>James R., Agency Owner</cite>
               </blockquote>
@@ -215,13 +309,13 @@
 
         <section id="contact" class="section cta">
           <div class="inner">
-            <header class="major">
+            <header class="major" data-aos="fade-up">
               <h2>Ready to automate your business?</h2>
             </header>
-            <p>Let&apos;s build something that works while you sleep.</p>
+            <p data-aos="fade-up" data-aos-delay="100">Let&apos;s build something that works while you sleep.</p>
             <ul class="actions stacked">
-              <li><a href="https://www.upwork.com" class="button primary">Hire Me on Upwork →</a></li>
-              <li><a href="mailto:noks@example.com" class="button">Get in Touch</a></li>
+              <li><a href="https://github.com/noksbuilds" class="button primary">View GitHub Work →</a></li>
+              <li><a href="mailto:noks@aiautomation.dev" class="button">Get in Touch</a></li>
             </ul>
           </div>
         </section>
@@ -230,9 +324,10 @@
       <footer id="footer">
         <div class="inner">
           <ul class="icons">
-            <li><a href="https://www.upwork.com">Upwork</a></li>
-            <li><a href="https://www.linkedin.com">LinkedIn</a></li>
-            <li><a href="mailto:noks@example.com">Email</a></li>
+            <li><a href="https://x.com/noksbuilds">@noksbuilds</a></li>
+            <li><a href="https://linkedin.com/in/noksbuilds">LinkedIn</a></li>
+            <li><a href="https://github.com/noksbuilds">GitHub</a></li>
+            <li><a href="mailto:noks@aiautomation.dev">Email</a></li>
           </ul>
           <ul class="copyright">
             <li>Noks · AI Automation Engineer · Bosnia</li>
@@ -242,5 +337,145 @@
     </div>
 
     <script src="assets/js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 800, once: true, offset: 100 });
+
+      (function typewriter() {
+        const phrases = [
+          "AI Automation Engineer",
+          "Full-Stack Web Developer",
+          "Voice AI Builder",
+          "n8n Workflow Architect"
+        ];
+        const target = document.getElementById("typewriterText");
+        if (!target) return;
+
+        const typeSpeed = 80;
+        const deleteSpeed = 45;
+        const holdTime = 1400;
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        function tick() {
+          const current = phrases[phraseIndex];
+          if (!deleting) {
+            charIndex += 1;
+            target.textContent = current.slice(0, charIndex);
+            if (charIndex === current.length) {
+              deleting = true;
+              setTimeout(tick, holdTime);
+              return;
+            }
+            setTimeout(tick, typeSpeed);
+          } else {
+            charIndex -= 1;
+            target.textContent = current.slice(0, charIndex);
+            if (charIndex === 0) {
+              deleting = false;
+              phraseIndex = (phraseIndex + 1) % phrases.length;
+            }
+            setTimeout(tick, deleteSpeed);
+          }
+        }
+
+        tick();
+      })();
+
+      (function buildParticles() {
+        const container = document.querySelector(".hero-particles");
+        if (!container) return;
+        const count = 24;
+
+        for (let i = 0; i < count; i += 1) {
+          const dot = document.createElement("span");
+          dot.className = "particle";
+          dot.style.left = Math.random() * 100 + "%";
+          dot.style.animationDuration = 8 + Math.random() * 8 + "s";
+          dot.style.animationDelay = Math.random() * 8 + "s";
+          dot.style.opacity = (0.18 + Math.random() * 0.25).toFixed(2);
+          dot.style.transform = "scale(" + (0.7 + Math.random() * 1.1).toFixed(2) + ")";
+          container.appendChild(dot);
+        }
+      })();
+
+      (function animateStats() {
+        const stats = document.querySelectorAll(".stat-item strong[data-target]");
+        const statsSection = document.querySelector("#about .stats");
+        if (!stats.length || !statsSection) return;
+
+        function animateValue(node) {
+          const targetValue = node.dataset.target;
+          if (targetValue === "inf") {
+            node.textContent = "∞";
+            return;
+          }
+
+          const target = parseInt(targetValue, 10);
+          const suffix = node.dataset.suffix || "";
+          const duration = 1400;
+          const start = performance.now();
+
+          function step(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const value = Math.floor(progress * target);
+            node.textContent = value + suffix;
+            if (progress < 1) requestAnimationFrame(step);
+          }
+
+          requestAnimationFrame(step);
+        }
+
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              stats.forEach(animateValue);
+              obs.disconnect();
+            }
+          });
+        }, { threshold: 0.45 });
+
+        observer.observe(statsSection);
+      })();
+
+      (function navScrollAndActive() {
+        const links = Array.from(document.querySelectorAll('#menu .links a[href^="#"]'));
+        const closeBtn = document.getElementById("menuClose");
+        if (!links.length) return;
+
+        links.forEach((link) => {
+          link.addEventListener("click", (event) => {
+            const id = link.getAttribute("href");
+            const target = id ? document.querySelector(id) : null;
+            if (!target) return;
+
+            event.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+            if (closeBtn) closeBtn.click();
+          });
+        });
+
+        const sections = links
+          .map((link) => {
+            const id = link.getAttribute("href");
+            return id ? document.querySelector(id) : null;
+          })
+          .filter(Boolean);
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const id = "#" + entry.target.id;
+            links.forEach((link) => {
+              const active = link.getAttribute("href") === id;
+              link.classList.toggle("active", active);
+            });
+          });
+        }, { rootMargin: "-35% 0px -55% 0px", threshold: 0.1 });
+
+        sections.forEach((section) => sectionObserver.observe(section));
+      })();
+    </script>
   </body>
 </html>
